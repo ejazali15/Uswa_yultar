@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+<h1
+  class="text-center text-3xl font-bold bg-violet-600 p-2 rounded-lg w-1/2 mx-auto mt-5"
+>
+  View your result
+</h1>
+
+<div class="mx-auto w-full mt-10">
+  <form
+    action=""
+    method="post"
+    class="mx-auto w-full flex items-center justify-center flex-col md:flex-row"
+  >
+  {% csrf_token %}
+    <input
+      type="search"
+      class="rounded-lg p-2 text-black w-[90%] md:w-1/2 outline-none border-none"
+      name="resultSearch"
+      placeholder="Search your result(search -> e.g 239984, kamran)"
+    />
+    <button
+      type="submit"
+      class="bg-[#1e48ed] text-white mt-5 md:mt-0 font-bold p-2 rounded-lg mx-2"
+    >
+      Search
+    </button>
+  </form>
+</div>
+<hr class="mt-5 h-2 w-1/2 mx-auto" />
+<h1
+  class="text-[#ffaeae] text-2xl font-semibold shadow-slate-100 hover:text-yellow-500 text-center"
+>
+  The results:
+</h1>
+
+<div class="mt-5 w-full">
+  <table class="w-full mx-auto">
+    <tbody>
+      <tr class="border-2 p-2">
+        <th class="text-xl border-2 p-2">Name</th>
+        <th class="text-xl border-2 p-2">Class</th>
+        <th class="text-xl border-2 p-2">Roll no</th>
+        <th class="text-xl border-2 p-2">Section</th>
+      </tr>
+      {% for result in results %}
+      <tr class="border-2 p-2">
+        <td class="border-2 p-2">
+          <a href="/result/{{result.uuid_num}}">{{result.name}}</a>
+        </td>
+        <td class="border-2 p-2">{{result.student_class}}</td>
+        <td class="border-2 p-2">{{result.roll_no}}</td>
+        <td class="border-2 p-2">{{result.student_section}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

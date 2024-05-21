@@ -1,0 +1,135 @@
+{% load static tailwind_tags %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{page_title}}</title>
+
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'src/style.css' %}" />
+    {% endcomment %} {% tailwind_css %}
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/School logo.png' %}"
+      type="image/x-icon"
+    />
+    <style>
+      /* Custom scrollbar styles */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #4a5568;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #718096;
+      }
+    </style>
+  </head>
+  <body class="font-['Poppins'] bg-[#0B0531] text-white">
+    <header>
+      <nav class="flex justify-between items-center">
+        <div class="flex justify-center ml-10 items-center">
+          <img
+            src="{% static 'img/school logo.png' %}"
+            class="w-16"
+            alt="School logo"
+          />
+          <ul class="block md:flex items-center justify-center">
+            <li class="hidden md:block mx-2"><a href="/">Home</a></li>
+            <li class="hidden md:block mx-2"><a href="#about">About</a></li>
+            <li class="hidden md:block mx-2"><a href="/result/">Result</a></li>
+            <li class="hidden md:block mx-2">
+              <a href="/admissions/">Admissions</a>
+            </li>
+            <li class="hidden md:block mx-2">
+              <a href="/blog/">Blog</a>
+            </li>
+            <li class="hidden md:block mx-2">
+              <a href="/certificate/">Certificate</a>
+            </li>
+          </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="p-2 bg-[#1ddc9f] rounded-full text-black font-bold mr-10">
+          <a href="/profile/">@{{user.username}}</a>
+          <a href="/logout/" class="text-violet-700">Logout</a>
+        </div>
+        {% else %}
+        <div class="md:flex hidden justify-center mr-10 items-center">
+          <ul class="flex items-center justify-center">
+            <li class="mx-2"><a href="/login/">Login</a></li>
+            <li
+              class="mx-2 bg-[#FFF500] text-black font-semibold p-2 rounded-tl-full rounded-tr-full rounded-bl-full"
+            >
+              <a href="/sign-up/">Sign up</a>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+        <div class="block md:hidden">
+          <span class="text-4xl mr-10 cursor-pointer">&#8801;</span>
+        </div>
+      </nav>
+    </header>
+    <body class="font-['Poppins'] bg-[#0B0531] text-white">
+      {% block content %}{% endblock content %}
+    </body>
+    <!-- Footer section -->
+    <footer class="w-full mt-5 pb-5">
+      <div class="flex items-center justify-center">
+        <ul class="flex space-x-10">
+          <li>
+            <a href="https://facebook.com" target="_blank"
+              ><img
+                class="w-10 invert"
+                src="{% static 'img/facebook-circle-fill.svg' %}"
+                alt="facebook"
+            /></a>
+          </li>
+          <li>
+            <a href="https://x.com" target="_blank"
+              ><img
+                class="w-10 invert"
+                src="{% static 'img/twitter-line.svg' %}"
+                alt="Twitter"
+            /></a>
+          </li>
+          <li>
+            <a href="https://youtube.com" target="_blank"
+              ><img
+                class="w-10 invert"
+                src="{% static 'img/youtube-fill.svg' %}"
+                alt="YouTube"
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex w-full items-center justify-center">
+        <ul class="flex space-x-5 mt-5">
+          <li class="hover:underline transition-[0.1s]">
+            <a href="#">Home</a>
+          </li>
+          <li class="hover:underline transition-[0.1s]">
+            <a href="#">About</a>
+          </li>
+          <li class="hover:underline transition-[0.1s]">
+            <a href="#">Result</a>
+          </li>
+          <li class="hover:underline transition-[0.1s]">
+            <a href="#">Admission</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

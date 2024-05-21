@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<!-- Main content -->
+<h1 class="text-4xl font-bold mt-16 ml-10">Blog Post :</h1>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+  <div class="bg-[#c0ade9] p-16 text-black rounded-lg mt-5 ml-5">
+    {% for school_blog in school_blogs %}
+    <div class="flex items-center justify-center">
+      <img
+        src="/media/{{school_blog.blog_image}}/"
+        class="rounded-lg shadow-2xl"
+        alt=""
+      />
+    </div>
+    <h1 class="text-2xl text-center">{{school_blog.blog_title}}</h1>
+    <p class="text-xl font--semibold">
+      {{school_blog.blog_description|truncatechars:100}}
+    </p>
+    <br />
+    <a
+      href="/blog/{{school_blog.uuid_num}}"
+      class="bg-green-700 text-white p-4 rounded-full"
+      >See more</a
+    >
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock content %}

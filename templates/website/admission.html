@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-center text-3xl font-bold mt-10">Admission Form</h1>
+<!-- Form inputs -->
+<div class="w-full flex justify-center items-center mt-3 flex-col">
+  {% for message in messages %}
+  <p class="text-red-600">{{message}}</p>
+  {% endfor %}
+  <form
+    action=""
+    method="post"
+    class="mt-5 w-full md:w-1/3 flex items-center justify-center flex-col bg-[#2c3c6ab5] rounded-lg p-3 gap-3"
+  >
+    {% csrf_token %}
+
+    <label for="first-name" class="text-xl">First name</label>
+
+    <input
+      type="text"
+      required
+      id="first-name"
+      name="first-name"
+      placeholder="Enter your first name"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="last-name" class="text-xl">Last name</label>
+
+    <input
+      type="text"
+      required
+      id="last-name"
+      name="last-name"
+      placeholder="Enter your last name"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="father-name" class="text-xl">Father Name</label>
+
+    <input
+      type="text"
+      required
+      id="father-name"
+      name="father-name"
+      placeholder="Enter your father name here"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="stud_cnic" class="text-xl">CNIC : (student)</label>
+
+    <input
+      type="text"
+      required
+      id="stud_cnic"
+      name="stud_cnic"
+      placeholder="Enter your CNIC here"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="contact-number" class="text-xl">Contact Number</label>
+
+    <input
+      type="tel"
+      required
+      id="contact-number"
+      name="contact-number"
+      placeholder="Enter contact number here"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="stud_class" class="text-xl"
+      >Student class (<span class="text-sm">e.g 8th pass)</span></label
+    >
+
+    <input
+      type="text"
+      required
+      id="stud_class"
+      name="stud_class"
+      placeholder="Enter student current class"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <label for="stud_field" class="text-xl">Science/Arts </label>
+
+    <input
+      type="text"
+      id="stud_field"
+      name="stud_field"
+      placeholder="Enter field class"
+      class="w-full p-2 rounded-lg outline-none bg-[#3e385b] placeholder:text-[#a49fa0] placeholder:text-sm"
+    />
+    <span class="text-red-800"
+      >* If you are secondary student dont worry just skip this part</span
+    >
+    <button
+      type="submit"
+      class="p-3 bg-[#fff519] text-black font-bold rounded-tr-lg rounded-bl-lg"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock content %}
