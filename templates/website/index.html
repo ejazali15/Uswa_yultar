@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uswa public school Yultar | Learn to build your dreams</title>
-    {% comment %}
-    <link rel="stylesheet" href="{% static 'src/style.css' %}" />
-    {% endcomment %} {% tailwind_css %}
+    {% tailwind_css %}
     <link
       rel="shortcut icon"
       href="{% static 'img/School logo.png' %}"
@@ -34,7 +32,7 @@
       }
     </style>
   </head>
-  <body class="font-['Poppins'] bg-[#0B0531] text-white">
+  <body class="font-['Poppins'] bg-[#0B0531] text-white scroll-smooth">
     <header>
       <nav class="flex justify-between items-center">
         <div class="flex justify-center ml-10 items-center">
@@ -117,7 +115,7 @@
     </header>
     <hr class="mt-10 w-[90%] mx-auto" />
     <!-- About Section -->
-    <div class="mt-2">
+    <div class="mt-2" id="about">
       <h1 class="text-center text-4xl font-bold">About Us</h1>
       <div class="space-y-5 sm:flex w-full mt-10">
         <div class="w-full md:w-[50%] mt-9 text-right">

@@ -44,8 +44,8 @@
       </tr>
       {% for result in results %}
       <tr class="border-2 p-2">
-        <td class="border-2 p-2">
-          <a href="/result/{{result.uuid_num}}">{{result.name}}</a>
+        <td class="border-2 p-3">
+          <a href="/result/{{result.uuid_num}}" class="bg-red-600 rounded-lg p-2">{{result.name}}</a>
         </td>
         <td class="border-2 p-2">{{result.student_class}}</td>
         <td class="border-2 p-2">{{result.roll_no}}</td>
