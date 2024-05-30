@@ -6,40 +6,65 @@
 </h1>
 
 <div class="mt-10 w-full h-full">
-  <table class="w-full mx-auto">
-    <tbody>
-      <tr class="border-2 p-2">
-        <th class="text-xl border-2 p-2">Name</th>
-        <th class="text-xl border-2 p-2">English</th>
-        <th class="text-xl border-2 p-2">Urdu</th>
-        <th class="text-xl border-2 p-2">Math</th>
-        <th class="text-xl border-2 p-2">Chemistry</th>
-        <th class="text-xl border-2 p-2">Science</th>
-        <th class="text-xl border-2 p-2">SST_book</th>
-        <th class="text-xl border-2 p-2">Islamiat</th>
-        <th class="text-xl border-2 p-2">Computer</th>
-        <th class="text-xl border-2 p-2">Biology</th>
-        <th class="text-xl border-2 p-2">Total</th>
-        <th class="text-xl border-2 p-2">Percent</th>
-      </tr>
-      {% for stud_result_detail in stud_result_details %}
-      <tr class="border-2 p-2">
-        <td class="border-2 p-2">{{stud_result_detail.name}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.English}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Urdu}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Math}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Chemistry}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Science}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.SST_book}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Islamiat}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Computer}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Biology}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Total_marks}}</td>
-        <td class="border-2 p-2">{{stud_result_detail.Percentage}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">School Result</h1>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200 text-black">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="py-2 px-4 border-b">Subject</th>
+            <th class="py-2 px-4 border-b">Marks</th>
+          </tr>
+        </thead>
+        {% for stud_result_detail in stud_result_details %}
+        <tbody>
+          <tr>
+            <td class="py-2 px-4 border-b">Mathematics</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Math}}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="py-2 px-4 border-b">English</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.English}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Science</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Science}}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="py-2 px-4 border-b">History</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.SST_book}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Computer</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Computer}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Urdu</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Urdu}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Chemistry</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Chemistry}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Islamiat</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Islamiat}}</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4 border-b">Biology</td>
+            <td class="py-2 px-4 border-b">{{stud_result_detail.Biology}}</td>
+          </tr>
+        </tbody>
+
+        <div>
+          <h1>Total Marks : {{stud_result_detail.Total_marks}}</h1>
+          <h1>Percentage : {{stud_result_detail.Percentage}}</h1>
+        </div>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

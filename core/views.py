@@ -74,7 +74,11 @@ def login_page(request):
         else:
             messages.info(request, "Credentials invalid")
             return redirect("login_page_site")
-    return render(request, "website/login.html", context={"page_title": "Login to s"})
+    return render(
+        request,
+        "website/login.html",
+        context={"page_title": "Login to our website | UPSY"},
+    )
 
 
 def sign_up(request):
@@ -104,7 +108,9 @@ def sign_up(request):
 
             return redirect("/")
     return render(
-        request, "website/sign-up.html", context={"page_title": "create your account"}
+        request,
+        "website/sign-up.html",
+        context={"page_title": "create your account | UPSY"},
     )
 
 
@@ -116,7 +122,10 @@ def logout(request):
 @login_required(login_url="login_page_site")
 def stud_result(request, pk):
     stud_result_details = Result.objects.filter(uuid_num=pk)
-    context = {"stud_result_details": stud_result_details}
+    context = {
+        "stud_result_details": stud_result_details,
+        "page_title": "See our All result here",
+    }
     return render(request, "website/result_details.html", context)
 
 
