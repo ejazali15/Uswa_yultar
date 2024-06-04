@@ -49,7 +49,7 @@ class Admission(models.Model):
 
 
 class Certificate(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="certificate")
     certificate_image = models.ImageField(upload_to="certificate/")
 
     def __str__(self) -> str:
